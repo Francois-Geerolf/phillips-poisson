@@ -2,6 +2,7 @@ library(tidyverse)
 library(ggrepel)
 library(sf)
 library(akima)
+#pak::pak("ofce/ofce")
 library(ofce)
 
 load("inflation_chomage.rds")
@@ -173,20 +174,15 @@ ggplot() +
   ) +
   labs(
     title   = "La courbe de Phillips n'est pas morte !",
-    subtitle = "Réalisé par François Geerolf"
+    subtitle = "Réalisé par François Geerolf",
+    x = "Taux de chômage",
+    y = "Taux d'inflation"
   ) +
   
   annotate("text" , x = -0.01, y = 0.35, label = "Estimation non linéaire de la courbe de Phillips pour la France (1895–2025).\nModèle piscicole: fonction superelliptique", hjust = 0, vjust = 0,
-           size = 3, family = "Open Sans")+
-  
-  theme(legend.position = "none") +
-  ofce_caption(
-    x       = "Taux de chômage",
-    y = "Taux d'inflation",
-    source = "Les données historiques sur l'inflation et le chômage (1895-2020) proviennent de la Jordà-Schularick-Taylor Maquereau History Database Version 6, complétée par les données de l'INSEA (Institut National du Suivi des Écosystèmes Aquatiques) pour les 5 dernières années (2021-2025), et un ajout had-hock pour l'oeil et la queue du poisson.",
-    note = "La super-ellipse apparaît dans certaines modélisations de la stagnation séculaire liées à l’excès d’épargne, offrant ainsi un cadre unifié permettant de réconcilier ces approches post-keynésiennes avec la synthèse néoclassique de Paul Samuelson et Robert Solow. Le paramètre de forme de la super-ellipse est estimé par maximum de vraisemblance: il suggère en une déviation significative par rapport à l’ellipse standard, compatible avec une courbe de Phillips en forme de poisson."
-  ) +
-  logo_ofce()
+           size = 3, family = "Open Sans") +
+  theme_minimal() +
+  theme(legend.position = "none")
 
 ggsave("graphique.pdf", width = 1.25*6, height = 1.25*3.375, dpi = 150)
 ggsave("graphique.png", width = 1.25*6, height = 1.25*3.375, bg = "white", dpi = 150)

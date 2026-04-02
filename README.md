@@ -6,6 +6,12 @@
 
 ![Graphique](graphique.png)
 
+## Essai 1
+
+[Code R](essai1.R)
+
+![](essai1.png)
+
 ## Données inflation-chômage
 
 [Code R](inflation_chomage.R)

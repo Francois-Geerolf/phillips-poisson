@@ -6,6 +6,8 @@
 
 ![Graphique](graphique.png)
 
+![Graphique OFCE](graphique-ofce.jpeg)
+
 ## Essai 1
 
 [Code R](essai1.R)
